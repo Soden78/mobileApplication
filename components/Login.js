@@ -5,25 +5,42 @@ import { NavigationContainer } from '@react-navigation/native';
 import ProfilPage from './ProfilPage';
 
 const Login = (props) => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleUsernameChange = (text) => {
+    setUsername(text);
+    console.log('Nom d\'utilisateur:', text);
+  };
+
+  const handlePasswordChange = (text) => {
+    setPassword(text);
+    console.log('Mot de passe:', text);
+  };
+
   return (
     <View style={styles.container}>
       <Text>Nom</Text>
       <TextInput
         style={styles.input}
         placeholder="Username"
+        onChangeText={handleUsernameChange}
+
       />
       <Text> Password </Text>
       <TextInput
         style={styles.input}
         placeholder="Password"
+        onChangeText={handlePasswordChange}
+
       />
       <Button
         title='Log in '
-        onPress={() => props.navigation.navigate('ProfilPage')}
+        onPress={() => props.navigation.navigate('Page de Profil')}
       />
-      <Button
+     <Button
         title='Sign In '
-        onPress={() => props.navigation.navigate('SignIn')}
+        onPress={() => props.navigation.navigate('Sign In')}
       />
     </View>
   );

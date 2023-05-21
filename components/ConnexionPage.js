@@ -1,9 +1,30 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet,TextInput,Button } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
 
 
 const ConnexionPage =(props)=>{
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleNomChange = (text) => {
+    setUsername(text);
+    console.log('Nom d\'utilisateur:', text);
+  };
+
+  const handleEmailChange = (text) => {
+    setEmail(text);
+    console.log('Email:', text);
+  };
+
+  const handlePasswordChange = (text) => {
+    setPassword(text);
+    console.log('Mot de passe:', text);
+  };
+
     return (
         <View style={styles.container}>
             
@@ -11,22 +32,28 @@ const ConnexionPage =(props)=>{
             <TextInput
                 style={styles.input}
                 placeholder="Username"
+                onChangeText={handleNomChange}
+
             />
             <Text> email </Text>
             <TextInput
                 style={styles.input}
-                placeholder="Password"
+                placeholder="Email"
+                onChangeText={handleEmailChange}
+
 
             />
             <Text> Password </Text>
             <TextInput
                 style={styles.input}
                 placeholder="Password"
+                onChangeText={handlePasswordChange}
+
             />
             <Button
-            title='Sign In '
-            onPress={()=> props.navigation.navigate('ProfilPage')}
-            />
+            title='Sign In'
+            onPress={() => props.navigation.navigate('Page de Profil')}
+          />
         </View>
       );
 }
