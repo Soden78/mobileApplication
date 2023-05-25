@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Button } from 'rea
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import ProfilPage from './ProfilPage';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Login = (props) => {
   const [username, setUsername] = useState('');
@@ -20,6 +21,7 @@ const Login = (props) => {
 
   return (
     <View style={styles.container}>
+      <Icon name="user" size={30} color="#000" />
       <Text>Nom</Text>
       <TextInput
         style={styles.input}
