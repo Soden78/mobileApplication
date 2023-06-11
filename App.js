@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 import { NavigationContainer, useFocusEffect } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Compteur from './components/Compteur';
+import { ButtonProvider } from './components/ButtonContext';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,6 +29,7 @@ function CompteurTabScreen() {
 
 export default function App() {
   return (
+    <ButtonProvider>
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Accueil" component={MainPage} />
@@ -39,6 +41,7 @@ export default function App() {
         <Tab.Screen name="Compteur" component={CompteurTabScreen} />
       </Tab.Navigator>
     </NavigationContainer>
+    </ButtonProvider>
   );
 }
 
